@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: "Roboto", sans-serif;
+    }
+
+    .slider {
+        width: 100%;
+        height: 100vh;
+    }
+
+    .slider .controls {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100px;
+        height: 100px;
+        z-index: 2;
+    }
+
+    .slider .controls>div {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+        font-size: 2rem;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .slider .controls>.up:active {
+        transform: translateY(-10px);
+    }
+
+    .slider .controls>.down:active {
+        transform: translateY(10px);
+    }
+
+    .slider .controls>.up {
+        top: 0px;
+        right: 0px;
+        background: #fff;
+        color: #111;
+        border-radius: 0 5px 5px 0;
+    }
+
+    .slider .controls>.down {
+        bottom: 0px;
+        left: 0px;
+        background: linear-gradient(#0cbaba, #380036);
+        color: #fff;
+        border-radius: 5px 0 0 5px;
+    }
+
+    .slider .wrapper {
+        width: 100%;
+        height: 100%;
+        display: flex;
+    }
+
+    .slider .wrapper .left,
+    .slider .wrapper .right {
+        width: 50%;
+        overflow: hidden;
+    }
+
+    .slider .wrapper .left>div,
+    .slider .wrapper .right>div {
+        width: 100%;
+        height: 100%;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .slider .wrapper .left>div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0px 90px 0px 40px;
+    }
+
+    .slider .wrapper .left>div h2 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 25px;
+        background: -webkit-linear-gradient(90deg, #0cbaba, #380036);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .slider .wrapper .left>div p {
+        font-size: 1.125rem;
+        font-weight: 300;
+        line-height: 25px;
+        color: #555;
+        text-align: justify;
+    }
+
+    .slider .wrapper .right>div img {
+        width: 100%;
+        height: 100%;
+        object-fit: obtain;
+    }
+
+    .slider .wrapper .right div:nth-child(1) {
+        margin-top: -400vh;
+    }
+</style>
+<script>
+
+    let slider = document.querySelector(".slider");
+    let currentSlide = 0;
+    let totalSlides = slider.querySelectorAll(".wrapper .left > div").length - 1;
+
+    slider.querySelector(".controls .up").addEventListener("click", function () {
+        if (currentSlide == 0) {
+            return;
+        }
+        currentSlide--;
+        slider.querySelector(".wrapper .left div").style.marginTop = `${currentSlide * -100
+            }vh`;
+        slider.querySelector(".wrapper .right div").style.marginTop = `${(totalSlides - currentSlide) * -100
+            }vh`;
+    });
+
+    slider.querySelector(".controls .down").addEventListener("click", function () {
+        if (currentSlide == totalSlides) {
+            return;
+        }
+        currentSlide++;
+        slider.querySelector(".wrapper .left div").style.marginTop = `${currentSlide * -100
+            }vh`;
+        slider.querySelector(".wrapper .right div").style.marginTop = `${(totalSlides - currentSlide) * -100
+            }vh`;
+    });
+
+</script>
+
+<body>
+    <div class="slider">
+        <div class="controls">
+            <div class="up">
+                <i class="fa fa-chevron-up"></i>
+            </div>
+            <div class="down">
+                <i class="fa fa-chevron-down"></i>
+            </div>
+        </div>
+
+        <div class="wrapper">
+            <div class="left">
+                <div>
+                    <h2>London</h2>
+                    <p>
+                        London is the capital of the United Kingdom, with a population of
+                        just under 9 million. It is among the oldest of the world’s great
+                        cities and one of the most cosmopolitan. London is also great for
+                        travelers because there is no language barrier so it’s a nice way
+                        to ease into visiting a foreign country.
+                    </p>
+                </div>
+
+                <div>
+                    <h2>Paris</h2>
+                    <p>
+                        Paris is the capital of France, with an official estimated
+                        population of 2 million residents. It is the most visited city in
+                        Europe. Paris has famous sights, museums, nightlife, and culture,
+                        and also an excellent Metro system so getting around is quick and
+                        easy.
+                    </p>
+                </div>
+
+                <div>
+                    <h2>Istanbul</h2>
+                    <p>
+                        Istanbul is the largest city in Turkey, serving as the country's
+                        economic, cultural and historic hub. It has a population of over
+                        16 million residents. Istanbul, which spreads across two
+                        continents and between two seas, is a city of empires past. The
+                        Hagia Sophia, Blue Mosque, Topkapi Palace, and Galata Tower are
+                        just some of the many historic structures scattered throughout the
+                        city.
+                    </p>
+                </div>
+
+                <div>
+                    <h2>Amsterdam</h2>
+                    <p>
+                        Amsterdam is the capital of the Netherlands, and it has a
+                        population of almost 1 million. It is still a major European
+                        tourism destination thanks to its beautiful architecture, lovely
+                        canals, and liberal social policies. Amsterdam is also
+                        consistently ranked one of the best places to live in Europe.
+                    </p>
+                </div>
+
+                <div>
+                    <h2>Rome</h2>
+                    <p>
+                        Rome is the capital city of Italy, with a population of 4 million
+                        residents. It has an immensely rich historical heritage and
+                        cosmopolitan atmosphere, making it one of Europe's and the world's
+                        most visited, famous, influential, and beautiful capitals. Rome
+                        also has wonderful palaces, thousand-year-old churches and
+                        basilicas, grand romantic ruins, opulent monuments, ornate
+                        statues, and graceful fountains.
+                    </p>
+                </div>
+            </div>
+            <div class="right">
+                <div>
+                    <img src="https://github.com/ecemgo/frontend-mentor-all-in-one/assets/13468728/f3089615-68aa-48bd-8184-97881b7f8d85"
+                        alt="rome" />
+                </div>
+
+                <div>
+                    <img src="https://github.com/ecemgo/frontend-mentor-all-in-one/assets/13468728/c6cee1ff-5c41-447e-be06-06388b87b538"
+                        alt="amsterdam" />
+                </div>
+
+                <div>
+                    <img src="https://github.com/ecemgo/frontend-mentor-all-in-one/assets/13468728/f879e848-c8dd-4ebd-876c-c07c8758107c"
+                        alt="istanbul" />
+                </div>
+
+                <div>
+                    <img src="https://github.com/ecemgo/frontend-mentor-all-in-one/assets/13468728/d0cb0774-5b2a-46d8-9575-8b6dc9f97583"
+                        alt="paris" />
+                </div>
+
+                <div>
+                    <img src="https://github.com/ecemgo/frontend-mentor-all-in-one/assets/13468728/a3c768a5-71d4-404c-82d7-6535f59f2098"
+                        alt="london" />
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="buy.css">
+    <title>Cart</title>
+</head>
+
+<body>
+
+    <div id="cartContainer" class="container">
+        <!-- Cart content will be displayed here -->
+    </div>
+
+    <script>
+        // Define the state variables
+        let total = 0;
+        let totalItems = 0;
+        let cart = [];
+
+        // Sample data for demonstration
+        const courses = [
+            { _id: 1, courseName: 'PDE', category: { name: 'NON-recyclable' }, ratingAndReviews: [], price: 20, thumbnail: 'path/to/a1.jpg' },
+            { _id: 2, courseName: 'HDPE grinding', category: { name: 'Recyclable' }, ratingAndReviews: [], price: 30, thumbnail: 'path/to/image2.jpg' },
+            // Add more courses as needed
+        ];
+
+        // Render the cart
+        function renderCart() {
+            const cartContainer = document.getElementById('cartContainer');
+            cartContainer.innerHTML = '';
+
+            if (total > 0) {
+                // Render cart courses
+                const cartCoursesContainer = document.createElement('div');
+                cartCoursesContainer.className = 'flex flex-col';
+
+                cart.forEach((course, indx) => {
+                    const courseElement = document.createElement('div');
+                    courseElement.className = `flex w-full flex-wrap items-start justify-between gap-6 ${indx !== cart.length - 1 && "border-b border-b-richblack-400 pb-6"
+                        } ${indx !== 0 && "mt-6"}`;
+
+                    // Create course HTML content
+                    courseElement.innerHTML = `
+                <div class="flex flex-1 flex-col gap-4 xl:flex-row">
+                    <img src="${course?.thumbnail}" alt="${course?.courseName}" class="h-[148px] w-[220px] rounded-lg object-cover">
+                    <div class="flex flex-col space-y-1">
+                        <p class="text-lg font-medium text-richblack-5">${course?.courseName}</p>
+                        <p class="text-sm text-richblack-300">${course?.category?.name}</p>
+                        <div class="flex items-center gap-2">
+                            <span class="text-yellow-5">4.5</span>
+                            <span class="text-richblack-400">${course?.ratingAndReviews?.length} Ratings</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col items-end space-y-2">
+                    <button onclick="removeItem(${course._id})" class="flex items-center gap-x-1 rounded-md border border-richblack-600 bg-richblack-700 py-3 px-[12px] text-pink-200">
+                        <span>Remove</span>
+                    </button>
+                    <p class="mb-6 text-3xl font-medium text-yellow-100">₹ ${course?.price}</p>
+                </div>
+            `;
+
+                    cartCoursesContainer.appendChild(courseElement);
+                });
+
+                cartContainer.appendChild(cartCoursesContainer);
+
+                // Render total amount
+                const totalAmountContainer = document.createElement('div');
+                totalAmountContainer.className = 'min-w-[280px] rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-6';
+                totalAmountContainer.innerHTML = `
+            <p class="mb-1 text-sm font-medium text-richblack-300">Total:</p>
+            <p class="mb-6 text-3xl font-medium text-yellow-100">₹ ${total}</p>
+            <button onclick="handleBuyCourse()" class="w-full justify-center bg-green-500 text-white py-2 px-4 rounded-md">Buy Now</button>
+        `;
+
+                cartContainer.appendChild(totalAmountContainer);
+            } else {
+                // Render empty cart message
+                const emptyCartMessage = document.createElement('p');
+                emptyCartMessage.className = 'mt-14 text-center text-3xl text-richblack-100';
+                emptyCartMessage.textContent = 'Your cart is empty';
+
+                cartContainer.appendChild(emptyCartMessage);
+            }
+        }
+
+        // Function to remove an item from the cart
+        function removeItem(courseId) {
+            cart = cart.filter(course => course._id !== courseId);
+            total = cart.reduce((acc, course) => acc + course.price, 0);
+            totalItems = cart.length;
+            renderCart();
+        }
+
+        // Function to handle the buy now button
+        function handleBuyCourse() {
+            // Implement your buy now logic here
+            alert('Buy now logic will be implemented here!');
+        }
+
+        // Initialize the cart with sample data
+        totalItems = courses.length;
+        cart = courses;
+        total = cart.reduce((acc, course) => acc + course.price, 0);
+
+        // Render the cart initially
+        renderCart();
+
+    </script>
+</body>
+
+</html>

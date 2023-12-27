@@ -1,0 +1,254 @@
+body{
+  margin:0;
+  padding: 0;    
+  background-color: rgba(255, 255, 255, 0.189);
+ font-family: Georgia, 'Times New Roman', Times, serif;
+ color: rgb(0, 23, 28);
+ 
+}
+.container1 {
+  max-width: 1200px;
+  
+  margin: 0 auto;
+  height: 100px;
+  
+  /* z-index: -3; */
+  /* padding: 0 20px; */
+}
+.form-wrapper {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center; /* Center the form horizontally */
+}
+
+
+.Sellog {
+background-color: #f4f4f4;
+padding: 20px;
+border-radius: 8px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+width: 80%; /* Set a percentage or adjust as needed */
+max-width: 400px; /* Set a maximum width if needed */
+margin: 0 auto; /* Center the container horizontally */
+}
+
+
+.Sellog h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center; /* Center the heading */
+}
+
+.Sellog input {
+  width: calc(100% - 20px); /* Adjust width and subtract padding */
+  padding: 20px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.Sellog input[type="submit"] {
+  background-color: #0b0c0b;
+  color: rgb(214, 209, 209);
+  cursor: pointer;
+  width: 100%; /* Make the button full width */
+}
+
+.Sellog input[type="submit"]:hover {
+  background-color: #080a09;
+}
+
+.container1 img{
+  height: 80px;
+  width: 170px;
+}
+.nav {
+  position: static;
+  background-color: transparent;
+  top: 0;
+  left: 0;
+  right: 0;
+  
+  transition: var(--main-transition);
+  text-transform: uppercase;
+}
+
+.nav .container1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+  transition: var(--main-transition);
+}
+
+.nav ul {
+  display: flex;
+  list-style-type: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav a {
+  position: relative;
+  color: #000000;
+  text-decoration: none;
+  padding: 7px 15px;
+  font-weight: 300;
+  transition: var(--main-transition);
+}
+
+.nav * {
+  font-size: 16px;
+  letter-spacing: 0.1rem;
+}
+
+.nav a.current,
+.nav a:hover {
+  color: var(--accent-color);
+}
+
+.nav a.current {
+  font-weight: 600;
+}
+
+.nav a.current::before {
+  content: "";
+  width: 50%;
+  height: 2px;
+  background-color: var(--accent-color);
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: var(--main-transition);
+}
+
+.nav.active {
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.nav.active a {
+  color: #000;
+}
+
+.nav.active a.current::before {
+  opacity: 0;
+}
+
+.nav.active .container1 {
+  padding: 20px 0;
+}
+
+i {
+  margin: 0 10px;
+}
+ul.sub-menu {
+  display: none; /* Hide sub-menu by default */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li:hover ul.sub-menu {
+  display: block; /* Show sub-menu when parent li is hovered */
+}
+
+li {
+  position: relative;
+}
+
+li ul.sub-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff; /* Adjust as needed */
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+li ul.sub-menu li {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+li ul.sub-menu li:last-child {
+  border-bottom: none;
+}
+
+header{
+  text-align: center;
+}
+header h1{
+  font-size: 35px;
+  font-weight: bold;
+  margin-top: 70px;
+}
+header p{
+  font-size: 20px;
+  margin-bottom: 40px;
+}
+.form-wrapper{
+  color: white;
+  margin-left: auto;
+  margin-right:auto ;
+  height: auto;
+  width:700px;
+  background: rgba(0, 32, 40, 0.705);     
+  padding:20px; 
+  
+}
+*{
+  box-sizing: border-box;
+}
+#survey-form>div{
+  margin: 20px;
+}
+#survey-form{
+  font-size: 25px;
+}
+.input-styling{
+  width:100%;
+  height: 30px;
+  border:rgb(141, 137, 137) 1px solid;
+  border-radius: 5px;
+  padding-left: 10px;
+}
+button{
+  width: 50%;
+  margin-left: 25%;
+  height: 40px;
+  background-color:rgb(0, 0, 0);
+  border:rgb(77, 74, 74) 1px solid;
+  border-radius: 5px;
+  color: white;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 25px;
+}
+
+/* Responsive */
+@media (max-width:600px){
+  body {
+      width: auto;
+    display:block;
+    text-align: center;
+  }
+  header{
+      color: black;
+  }
+  .form-wrapper{
+      color: white;
+      margin-left: auto;
+      margin-right:auto ;
+      height: auto;
+      width:400px;
+      background: rgba(0, 0, 0, 0.5);     
+      padding:20px; 
+      font-size: 20px;
+      
+  }
+
+    
+
+
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+    <script src="https://kit.fontawesome.com/c32adfdcda.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="buy.css">
+    <script src="h.js"></script>
+
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="container">
+            <h1 class="logo"><a href="/"><img class="logo" src="img/home_img/logo.png" alt=""></a>
+            </h1>
+            <ul>
+                <li><a href="/" class="current">Home</a></li>
+                <li><a href="join">About</a></li>
+                <li><a href="seller">Sell</a></li>
+                <!-- <li><a href="">Sell</a>
+
+                </li> -->
+                <ul>
+                    <li>
+                        <a href="#">Buy</a>
+                        <ul class="sub-menu">
+                            <li><a href="/#waste">Normal Buy</a></li>
+                            <li><a href="/#spewaste">Special Offer</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <li><a href="appli">Awareness</a></li>
+                <li><a href="/#contactuspage">Contact</a></li>
+                <li><a href="login">Login</a></li>
+
+            </ul>
+        </div>
+    </nav>
+
+
+    <br><br><br><br><br>
+
+    <div class="container1">
+        <h1>Shopping Cart</h1>
+        <table class="table table-xs">
+            <tr>
+                <th></th>
+                <th>Description</th>
+                <th class="text-right">Qtn</th>
+                <th class="text-right">Price</th>
+                <th class="text-right">Total</th>
+                <th class="text-right"></th>
+            </tr>
+            <% for (let camps of ca){ %>
+                <tr class="item-row">
+                    <td>
+                        <img src=<%=camps.image%> alt="">
+                    </td>
+                    <td>
+                        <p>
+                            <strong>
+                                <%=camps.typeofwaste %>
+                            </strong>
+                        </p>
+                        <p>
+                            <%=camps.query %>
+                        </p>
+                    </td>
+                    <td class="text-right" title="Qtn">
+                        <form action="/cart1" method="post">
+                            <input type="text" name="quantity" placeholder="1">
+                        </form>
+
+
+                    </td>
+                    <td class="text-right" title="Price">
+                        <%=camps.qotation %>
+                    </td>
+                    <td class="text-right" title="Total">
+                        Totot-000
+                    </td>
+                    <td class="text-right">
+                        <button class="" onclick="deleteItem(this)"> Remove</button>
+
+                    </td>
+                </tr>
+                <% } %>
+
+                    <tr class="total-row info">
+                        <td class="text-right" colspan="4">Total</td>
+                        <td class="text-right">18.00</td>
+                        <td class="text-right" title="Total">
+                            <button><a href="pay"> BUY</a></button>
+                        </td>
+                    </tr>
+        </table>
+    </div>
+
+
+
+
+</body>
+
+</html>

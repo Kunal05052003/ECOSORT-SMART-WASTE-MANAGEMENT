@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="add.css">
+</head>
+
+<body>
+
+    <nav class="nav">
+        <div class="container">
+            <h1 class="logo"><a href="#"><img class="logo" src="img/home_img/logo.png" alt=""></a>
+            </h1>
+            <ul>
+                <li><a href="/" class="current">Home</a></li>
+                <li><a href="join">About</a></li>
+                <li><a href="seller">Sell</a></li>
+                <li><a href="appli">Services</a></li>
+                <li><a href="/#contactuspage">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="flex-container">
+        <div class="flex-item-left">
+
+            <h1>Recyle. Reuse. Reduce.</h1>
+
+            <img src="https://assets.codepen.io/1858834/dennis-schrader-via_unsplash-ciudad-mexico.jpg"
+                alt="una ciudad en mexico" />
+
+
+        </div>
+        <div class="flex-item-right">
+            <!-- <img src="ai.png" class="mm" alt=""> -->
+
+            <h2>10+ </h2>
+            <p>Recyclable Plastic Waste Products Listed .</p>
+
+            <hr>
+            <br>
+            <br>
+            <h2>Over 10k+ </h2>
+            <p>recycled plastic waste products available
+
+            </p>
+
+            <hr>
+            <br>
+            <br>
+            <h2>Los Audiovisuales</h2>
+            <p>Espero que unos enlaces puedan ayudarles.</p>
+
+            <hr>
+            <br>
+            <br>
+            <h2>Los Viajes</h2>
+            <p>Quiero visitar México o Colombia (Salento).</p>
+            <hr>
+            <br>
+            <br>
+        </div>
+    </div>
+
+
+    <!-- <div class="hero">
+        <div class="inside1">
+            <img src="plas/eco.jpg" alt="">
+            <h2>Recycle.Reuse.<h2>Reduce.</h2>
+            </h2>
+        </div>
+        <div class="inside">
+
+            <h1>Recycle.Reuse.<h1>Reduce.</h1>
+            </h1>
+
+
+        </div>
+    </div> -->
+    <div>
+        <div class="info">
+            <div class="c-h-h-n">Recyclable Plastic
+            </div>
+            <div class="c-h-w-n">Waste</div>
+            <br>
+            <p>We offer comprehensive recycling, industry-specific waste management, quality control &
+                sustainability
+                solutions for businesses and corporations.
+            </p>
+
+        </div>
+        <!-- <div class="info">
+            <h2>
+                Services & Solutions
+            </h2>
+            
+        </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <!-- <div class="list">
+        <ol class="alternate">
+            <% for (let camps of ca){ %>
+                <li>
+                    <%=camps.typeofwaste%>
+
+
+                </li>
+                <img class="b1" src="img/home_img/id2.png" alt="">
+                <% } %>
+
+
+        </ol>
+    </div> -->
+
+
+
+    <div class="boxes1">
+        <% for (let camps of ca){ %>
+            <div class=" box1">
+                <div class="b12">
+                    <img class="b1" src="<%=camps.image%>" alt="">
+                </div>
+                <br>
+
+                <div class="ib">
+                    <h3>
+                        <%=camps.typeofwaste%>
+                    </h3>
+                </div>
+
+
+                <div class="he">
+                    Price-100.00/kg Rs
+                </div>
+                <br>
+                <br>
+                <div class="he2">
+                    <a href="buyer">ADD TO CART</a>
+                </div>
+
+
+            </div>
+            <% } %>
+
+
+
+
+
+
+
+
+
+
+                <div class="btn">
+                    <button class="mybtn">See More</button>
+                </div>
+
+
+
+</body>
+
+</html>
