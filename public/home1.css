@@ -699,6 +699,7 @@ ol.right > li::after{
     -5px -5px 30px 15px rgba(0,0,0,0.22);
 }
 .c2{
+  margin: 0 30%;
   background-image: url(img/home_img/re2.jpg);
   width: 352px;
   height: 420px;
@@ -716,6 +717,7 @@ ol.right > li::after{
   padding-top: 2%;
   /* margin-left: 20%; */
   margin-top: 3.5%;
+  /* margin:; */
   box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
 }
 .c2:hover {
@@ -1672,4 +1674,7 @@ ol.right > li::after{
   /* justify-content: center; */
   height: 750px;
  
+}
+div .rec , div .nonrec{
+  
 }
