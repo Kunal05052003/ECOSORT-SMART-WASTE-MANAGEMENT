@@ -530,3 +530,97 @@ li ul.sub-menu li:last-child {
     display: none;
   }
 }
+/* Reset default margin and padding */
+body, h1, h2, p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the header */
+header {
+  background-color: #f2f2f2;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Style the main content */
+main {
+  padding: 20px;
+}
+
+/* Style section headings */
+h2 {
+  margin-bottom: 10px;
+}
+
+/* Style the footer */
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.nss{
+  margin: 2%;
+  align-items: center;
+  text-justify: auto ;
+  text-decoration-color: #000;
+  color: #000;
+}
+.nss section{
+  margin: 5% ;
+  text-align: center;
+  color: #000;
+  text-emphasis-color:  #006494;
+  font-size: x-large;
+}
+.nss{
+  /* transform: translateY(100%); 
+   
+  */
+  /* position: fixed; */
+  top: 200px;
+}
+.mybtn , .btn{
+  margin-bottom: 0;
+}
+/* Reset default margin and padding */
+body, h1, h2, p, img {
+  margin: 0;
+  padding: 0;
+}
+
+/* Center the content */
+.nssimg {
+  display: flex;
+  flex-wrap: wrap;
+  /* flex-direction: row; */
+  justify-content: center;
+}
+
+/* Style images */
+.nssi {
+  /* max-width: 100%; */
+  width: 30%;
+  height: auto;
+  margin: 25px 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease; /* Add transition for hover effect */
+}
+
+/* Hover effect for images */
+img:hover {
+  transform: scale(1.15); /* Enlarge the image on hover */
+}
+
+/* Responsive layout for images */
+@media (max-width: 768px) {
+  .nssimg {
+    flex-direction: column; /* Stack images in a column on small screens */
+    align-items: center; /* Center-align images in a column */
+  }
+}
