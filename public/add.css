@@ -613,7 +613,7 @@ body, h1, h2, p, img {
 }
 
 /* Hover effect for images */
-img:hover {
+.nssi:hover {
   transform: scale(1.15); /* Enlarge the image on hover */
 }
 

@@ -10,6 +10,20 @@ const Buy = require('./models/buyer');
 // const session = require('express-session');
 // const flash = require('express-flash');
 
+
+// function updateMenuVisibility() {
+//     var role = await Sing.findOne({name:req.body.role});
+//     if (role != null){  //if there is no such user in the database
+//         if(role=="buyer"){
+//             document.getElementById('addBu').style.visibility='visible';    
+//             document.getElementById('showBu').style.display='block';
+//         }else if(role=="seller"){
+//             document.getElementById('addSel').style.visibility="visible";
+//             document.getElementById('showSel').style.display='block';
+//         }
+//     }
+// }
+
 const methodOverride = require('method-override')
 mongoose.connect('mongodb://127.0.0.1:27017/cogni', { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
@@ -25,7 +39,9 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'))
 app.use(express.urlencoded({extended:false}))
 app.use(methodOverride('_method'))
-app.use(express.json())
+app.use(express.json());
+
+
 
 // app.use(flash());
 let logo=false
@@ -47,12 +63,11 @@ app.post("/signup",async(req,res)=>{
         name:req.body.name,
         email:req.body.email,
         password:req.body.password,
-        confirmpassword:req.body.confirmpassword
+        confirmpassword:req.body.confirmpassword,
+        role: req.body.role
     }
     await Sing.insertMany([data])
     res.render("mainlogin.ejs")
-   
-    
 })
 
 app.post("/llogin",async(req,res)=>{
