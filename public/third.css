@@ -234,7 +234,7 @@ body {
 .sideleft {
   /* flex: 1; */
   padding: 20px;
-  background-color: #394240;
+  background-color: #013a40;
   color: #fff;
   width: 450px;
 }
@@ -253,13 +253,13 @@ body {
   cursor: pointer;
   margin-bottom: 10px;
   padding: 15px;
-  background-color: #57666e;
+  background-color: #57696e;
   border-radius: 5px;
   transition: background-color 0.3s ease;
 }
 
 .sideleft li:hover {
-  background-color: #718086; /* Hover color */
+  background-color: #7b9396; /* Hover color */
 }
 
 .sideright {
@@ -407,7 +407,7 @@ body {
   padding: 20px;
   background-color: #f7f7f7;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(3, 52, 69, 0.314);
 }
 
 /* Style the headings */
@@ -460,7 +460,7 @@ body {
 }
 
 /* Style the headings */
-.sideright h1 ,  {
+.sideright h1   {
   font-size: 38px;
   margin: 30px 0; /* Add margin top and bottom */
   color: #333;
