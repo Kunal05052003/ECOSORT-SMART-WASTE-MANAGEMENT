@@ -3,10 +3,33 @@ const app=express();
 const path=require('path');
 const mongoose = require('mongoose');
 const cors = require("cors");
+
 const bodyParser=require('body-parser');
+
 const Sing = require('./models/signin');
 const Sell = require('./models/seller');
 const Buy = require('./models/buyer');
+
+
+
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
+
+
+
+io.on('connection', (socket) => {
+    console.log('A user connected');
+    socket.on('disconnect', () => {
+        console.log('A user disconnected');
+    });
+
+    socket.on('message', (message) => {
+        const response = `Chatbot: ${message}`;
+        socket.emit('botMessage', response);
+    });
+});
+
+
 // const session = require('express-session');
 // const flash = require('express-flash');
 
@@ -41,8 +64,38 @@ app.use(express.urlencoded({extended:false}))
 app.use(methodOverride('_method'))
 app.use(express.json());
 
+// const { Configuration, OpenAIApi } = require("openai");
 
+// require("dotenv").config();
 
+// const config = new Configuration({
+//     apiKey: process.env.OPEN_API_KEY,
+//   });
+//   const openai = new OpenAIApi(config);
+//   messages = [];
+
+// app.post("/message", (req, res) => {
+//     const message = req.body.message;
+//     messages.push({
+//       role: "user",
+//       content: message,
+//     });
+//     const response = openai.createChatCompletion({
+//       model: "gpt-4",
+//       messages,
+//     });
+//     response
+//       .then((result) => {
+//         messages.push({
+//           role: "assistant",
+//           content: result.data.choices[0].message.content,
+//         });
+//         res.send(result.data.choices[0].message.content);
+//       })
+//       .catch((err) => {
+//         console.log(err);
+//       });
+//   });
 // app.use(flash());
 let logo=false
 app.get('/', (req, res) => {
@@ -52,6 +105,9 @@ app.get('/login', (req, res) => {
     res.render('mainlogin')
 });
 
+app.get('/kshitijbot', (req, res) => {
+    res.render('botkshitij')
+});
 app.get('/buyer', (req, res) => {
     res.render('buy')
 });
@@ -71,13 +127,26 @@ app.post("/signup",async(req,res)=>{
 })
 
 app.post("/llogin",async(req,res)=>{
-   
+    
     try{
         const check=await Sing.findOne({name:req.body.username})
+       
+
         if (check.password===req.body.userpass){
-            const logo=true;
-            console.log(logo)
-            res.render("seller_details.ejs")
+            console.log(check)
+            // res.render('home1.ejs',{check})
+            if(check.role==="buyer"){
+                res.render("homeforbuy.ejs",{check})
+            }
+            else if(check.role==="seller"){
+                res.render("homeforsell.ejs",{check})
+            }
+            else{
+                res.render("home1.ejs",{check})
+            }
+            // const logo=true;
+            // console.log(logo)
+            
 
         }
         else{
