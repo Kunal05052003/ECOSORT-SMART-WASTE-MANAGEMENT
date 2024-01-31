@@ -12,22 +12,22 @@ const Buy = require('./models/buyer');
 
 
 
-const http = require('http').Server(app);
-const io = require('socket.io')(http);
+// const http = require('http').Server(app);
+// const io = require('socket.io')(http);
 
 
 
-io.on('connection', (socket) => {
-    console.log('A user connected');
-    socket.on('disconnect', () => {
-        console.log('A user disconnected');
-    });
+// io.on('connection', (socket) => {
+//     console.log('A user connected');
+//     socket.on('disconnect', () => {
+//         console.log('A user disconnected');
+//     });
 
-    socket.on('message', (message) => {
-        const response = `Chatbot: ${message}`;
-        socket.emit('botMessage', response);
-    });
-});
+//     socket.on('message', (message) => {
+//         const response = `Chatbot: ${message}`;
+//         socket.emit('botMessage', response);
+//     });
+// });
 
 
 // const session = require('express-session');
